@@ -17,6 +17,6 @@ def form(request):
 
     return render(request,'form.html');
 def counter(request):
-    words = request.GET['words']
+    words = request.POST['words']
     amount_of_words= len(words.split())
     return render(request,'counter.html', {'amount': amount_of_words})
