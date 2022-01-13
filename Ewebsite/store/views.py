@@ -26,7 +26,14 @@ def index(request):
     feature4.name = 'easy to use'
     feature4.details = 'We are So fast'
 
-    return render(request,'index.html',{'feature1':feature1,'feature2':feature2,'feature3':feature3,'feature4':feature4});
+    feature5 = Feature()
+    feature5.id = 3,
+    feature5.name = 'easy to use'
+    feature5.details = 'We are So fast'
+
+    features = [feature1,feature2,feature3,feature4,feature5]
+
+    return render(request,'index.html',{'features':features});
 
 def form(request):
 
