@@ -20,6 +20,21 @@ def counter(request):
     return render(request,'counter.html', {'amount': amount_of_words});
 def intro(request):
     return render(request,'intro.html');
+def login(request):
+    if request.method == 'POST':
+       username = request.POST['username']
+       password = request.POST['password']
+
+       user = auth.authenticate(username=username, password=password)
+
+       if user is not None:
+           auth.login(request, user)
+           return redirect('index')
+       else:
+           messages.info(request,'Credentials Invalid')
+           return redirect('login')
+    else:
+        return render(request,'login.html')
 
 def register(request):
     if request.method == 'POST':
