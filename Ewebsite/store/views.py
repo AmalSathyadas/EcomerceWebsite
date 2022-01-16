@@ -6,37 +6,7 @@ def home(request):
     return render(request,'home.html');
 
 def index(request):
-    feature1 = Feature()
-    feature1.id=0,
-    feature1.name='Fast'
-    feature1.is_true = True
-    feature1.details='We are So fast'
-
-    feature2 = Feature()
-    feature2.id = 1,
-    feature2.name = 'Reliable'
-    feature2.is_true = True
-    feature2.details = 'We are So fast'
-
-    feature3 = Feature()
-    feature3.id = 2,
-    feature3.name = 'Afordable'
-    feature3.is_true = False
-    feature3.details = 'We are So fast'
-
-    feature4 = Feature()
-    feature4.id = 3,
-    feature4.name = 'easy to use'
-    feature4.is_true = True
-    feature4.details = 'We are So fast'
-
-    feature5 = Feature()
-    feature5.id = 3,
-    feature5.name = 'easy to use'
-    feature5.details = 'We are So fast'
-
-    features = [feature1,feature2,feature3,feature4,feature5]
-
+    features = Feature.objects.all()
     return render(request,'index.html',{'features':features});
 
 def form(request):
